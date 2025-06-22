@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 """
 航发属性模板桌面应用程序
-使用PySide5开发的Excel数据处理工具，兼容Windows 7系统
+使用PyQt5开发的Excel数据处理工具，确保Windows 7兼容性
 """
 
 import sys
 import os
 import pandas as pd
-from PySide5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout,
-                               QWidget, QLabel, QLineEdit, QListWidget, QScrollArea,
-                               QTextEdit, QMessageBox, QGroupBox, QRadioButton,
-                               QCheckBox, QButtonGroup, QFrame, QComboBox, QListWidgetItem,
-                               QSplitter)
-from PySide5.QtCore import Qt, Signal
-from PySide5.QtGui import QFont
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout,
+                             QWidget, QLabel, QLineEdit, QListWidget, QScrollArea,
+                             QTextEdit, QMessageBox, QGroupBox, QRadioButton,
+                             QCheckBox, QButtonGroup, QFrame, QComboBox, QListWidgetItem,
+                             QSplitter)
+from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtGui import QFont
 
 
 
@@ -389,4 +389,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = PropertyConfigApp()
     window.show()
-    sys.exit(app.exec_())  # PySide5使用exec_()而不是exec()
+    sys.exit(app.exec_())  # PyQt5使用exec_()而不是exec()
