@@ -1,0 +1,35 @@
+name: Build Windows7 Compatible EXE
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest  # Windows Server 2022，但兼容构建老版本
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.7'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Build EXE with PyInstaller
+      run: |
+        pyinstaller --onefile --name Ofs_HFDB main.py --noconsole
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Ofs_HFDB
+        path: dist/Ofs_HFDB.exe
