@@ -1,4 +1,4 @@
-PySide5==5.15.8
+PySide5
 pandas==1.3.5
 openpyxl==3.0.10
 numpy==1.21.6
